@@ -3,16 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1>Leah Teffera</h1>
+      <section id = "intro">
+        <h2>Introduction</h2>
+        <p>
+            Hi there! I'm Leah Teffera, a rising junior at Wellesley College.
+            I'm majoring in Computer Science, and am interested in front-end programming. 
+            I grew up in (and currently reside in) the small town of Topsfield, MA, with 
+            my two sisters, parents and lovely dog, Zeus. Click the button to see some more pictures of
+            Zeus.
+        </p>
+        <button id ="get_dog">Change Image!</button>
+        <div id="dogs-container">
+          <img src = "images/dog0.jpg" id = "dog_pic" alt = "picture of my dog Zeus">
+        </div>
+      </section>
+      <section id = "interests">
+        <h2>Interests</h2>
+        <h3>Technical</h3>
+        <ul>
+          <li>Web development</li>
+          <li>UX/UI design</li>
+          <li>Civic technology</li>
+          <li>Cybersecurity</li>
+       </ul>
+        <h3>Other</h3>
+        <ul>
+          <li>Drawing</li>
+          <li>Digital art</li>
+          <li>Bicycling</li>
+          <li>Baking</li>
+       </ul>
+      </section>
+      <section id = "careerdev">
+        <h2>Elsewhere on the Web</h2>
+        <p>Here are some links that provide more information about my work and experience:</p>
+        <ul>
+          <li>
+            <a href="https://github.com/lyteffera">My GitHub</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/leah-teffera-bb7b9119a/">My LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/document/d/1mPMe0K4XE3NicD57s9cEbxOILTbhP1pidN7LMamlu6U/edit?usp=sharing" download>My Resume</a>
+          </li>
+       </ul>
+      </section>
+      <section id = "projects">
+        <h2>Projects</h2>
+        <p>WIP!</p>
+      </section>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
