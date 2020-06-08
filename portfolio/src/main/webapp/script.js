@@ -23,11 +23,12 @@ function selectPodcastReccomendations() {
   'Still Processing', 'Ologies with Alie Ward', 'Hello From the Magic Tavern', 'Critical Role'];
 
   // Pick a podcast.
-  const selectedPodcast = podcastReccomendations[Math.floor(Math.random() * podcast_recs.length)];
-
+  const selectedPodcast = podcastReccomendations[Math.floor(Math.random() * podcastReccomendations.length)];
+  
   // Add it to the page.
   const reccomendationsContainer = document.getElementById('recs-container');
   reccomendationsContainer.innerText=selectedPodcast;
+
 }
 
 
