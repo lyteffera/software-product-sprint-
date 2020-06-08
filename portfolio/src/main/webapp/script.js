@@ -18,17 +18,16 @@
  clicked. 
  */
 
-function addPodcastRecs() {
-  const podcast_recs =
-      ['Modern Love', 'tech-ish', 'Welcome To Night Vale', 'Radiolab', 'The Nod',
-      'Still Processing','Ologies with Alie Ward', 'Hello From the Magic Tavern','Critical Role'];
+function selectPodcastReccomendations() {
+  const podcastReccomendations = ['Modern Love', 'tech-ish', 'Welcome To Night Vale', 'Radiolab', 'The Nod',
+  'Still Processing', 'Ologies with Alie Ward', 'Hello From the Magic Tavern', 'Critical Role'];
 
   // Pick a podcast.
-  const pods = podcast_recs[Math.floor(Math.random() * podcast_recs.length)];
+  const selectedPodcast = podcastReccomendations[Math.floor(Math.random() * podcast_recs.length)];
 
   // Add it to the page.
-  const recsContainer = document.getElementById('recs-container');
-  recsContainer.innerText = pods;
+  const reccomendationsContainer = document.getElementById('recs-container');
+  reccomendationsContainer.innerText=selectedPodcast;
 }
 
 
