@@ -2,17 +2,87 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Leah's Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1>Leah Teffera</h1>
+      <section id"intro">
+        <h2>Intro</h2>
+        <p>Welcome to my portfolio! My name is Leah Teffera and I am a rising junior at Wellesley College, studying Computer 
+             Science with an interest in front-end programming. I live in the small town of Topsfield, MA (home of the famous
+             <a href="https://www.topsfieldfair.org/">Topsfield Fair</a>)
+             with my two sisters, parents and lovely dog Zeus.
+        </p>
+      </section>
+      <section id="interests"> 
+        <h2>My Interests</h2>
+          <h3>Technical/Design</h3>
+          <p>I have many interests in Computer Science and the fields that intersect it. 
+            <ul>
+               <li>Front-end development : I love creating websites and games using HTML, CSS and JavaScript, 
+                and plan on exploring that further.</li>
+               <li>Design : More specifically, UX/UI Design and Graphic Design.</li>
+               <li>Cybersecurity : I am currently working in the Lerner Security and Privacy Lab investigating 
+                    different minority groups and their perceptions of security & privacy, 
+                    and am looking forward to learning more about the subject.
+                </li>
+           </ul>
+          </p> 
+         <h3>Other Interests</h3>
+         <p>Aside from my career-related interests, I enjoy biking around town, baking, and playing with dogs. 
+         I'm a huge fan of western-animated TV shows and anime, and enjoy listening to podcasts!</p>
+         <p>Click here to get a podcast suggestion:
+         <button onclick="selectPodcastReccomendations()">Click me!</button>
+         </p>
+         <div id="recs-container">   
+         </div>
+         <p>I also enjoy drawing, painting, and taking photos. Here are a few pictures 
+           that I've taken that I really like:
+         <div class="row1">
+          <figure class="column">
+            <img src="images/buttercup.jpg" alt="a small yellow flower">
+            <figcaption>A buttercup! Location unknown</figcaption>
+          </figure>
+          <figure class="column">
+            <img src="images/flowers.jpg" alt="daisies in a field">
+            <figcaption>Daisies! Photo taken in Pye Brook Park, Topsfield, MA</figcaption>
+          </figure>
+         </div>
+         <div class="row2">
+           <figure class="column">
+           <img src="images/pink.jpg" alt="pink flowers">
+           <figcaption>Pink flowers! Photo taken on Wellesley College's campus</figcaption>
+          </figure>
+          <figure class="column">
+            <img src="images/london.jpg" alt="geometric glass ceiling">
+            <figcaption>Geometric glass ceiling. Photo taken inside The National Gallery in London.</figcaption>
+          </figure>
+         </div>
+      </section>
+      <section id="resources">
+        <h2>Elsewhere on the Web</h2>
+        <p>Below are links to places where you can connect to me professionally, or find out more about 
+           my work and skills.</p>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/leah-teffera-bb7b9119a/">My LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://github.com/lyteffera">My GitHub</a>
+          </li>
+          <li>
+            <a href="https://docs.google.com/document/d/1mPMe0K4XE3NicD57s9cEbxOILTbhP1pidN7LMamlu6U/edit?usp=sharing">My Resume</a>
+          </li>
+        </ul>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <p>WIP!</p>
+      </section>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>
