@@ -13,16 +13,22 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a podcast suggestion to the page. I repurposed the code 
+ previously written that added a random greeting to the webpage when 
+ clicked. 
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+function addPodcastRecs() {
+  const podcast_recs =
+      ['Modern Love', 'tech-ish', 'Welcome To Night Vale', 'Radiolab', 'The Nod',
+      'Still Processing','Ologies with Alie Ward', 'Hello From the Magic Tavern','Critical Role'];
+
+  // Pick a podcast.
+  const pods = podcast_recs[Math.floor(Math.random() * podcast_recs.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const recsContainer = document.getElementById('recs-container');
+  recsContainer.innerText = pods;
 }
+
+

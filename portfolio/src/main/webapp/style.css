@@ -3,7 +3,34 @@
   margin-right: auto;
   width: 650px;
 }
-
-#greeting-container {
-  margin-top: 20px;
+/*Sets the background colors for each section of the website, 
+as well as the section headers.*/
+section{
+  background-color: #e6f7ff;
 }
+h2{
+  background-color: #80bfff;
+}
+button{
+  background-color: white;
+  border-color:#ffe7b5;
+}
+#recs-container {
+  margin-top: 20px; 
+}
+body{
+  font-family: 'PT Serif', serif;
+}
+img{
+  width: 250px;
+  height: 250px;
+}
+/* Uses flex property to create two rows of pictures.*/
+.row1,.row2 {
+  display: flex;
+}
+.column {
+  flex: 20%;
+  padding: 5px;
+}
+
