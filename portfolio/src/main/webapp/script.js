@@ -11,23 +11,17 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 /**
  * Adds a podcast suggestion to the page. I repurposed the code 
  previously written that added a random greeting to the webpage when 
  clicked. 
  */
-
 function selectPodcastReccomendations() {
   const podcastReccomendations = ['Modern Love', 'tech-ish', 'Welcome To Night Vale', 'Radiolab', 'The Nod',
   'Still Processing', 'Ologies with Alie Ward', 'Hello From the Magic Tavern', 'Critical Role'];
-
   // Pick a podcast.
-  const selectedPodcast = podcastReccomendations[Math.floor(Math.random() * podcast_recs.length)];
-
+  const selectedPodcast = podcastReccomendations[Math.floor(Math.random() * podcastReccomendations.length)];
   // Add it to the page.
   const reccomendationsContainer = document.getElementById('recs-container');
   reccomendationsContainer.innerText=selectedPodcast;
 }
-
-
