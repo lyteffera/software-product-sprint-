@@ -25,3 +25,26 @@ function selectPodcastReccomendations() {
   const reccomendationsContainer = document.getElementById('recs-container');
   reccomendationsContainer.innerText=selectedPodcast;
 }
+/**
+ * Fetches a hard-coded greeting from the server and adds it to the DOM. 
+ */
+function getGreetingMessage(){
+  const greetingPromise = fetch('/data');
+  greetingPromise.then(handleGreeting);
+}
+/**
+ * Converts the greeting in getGreetingMessage() to text, which is handled
+ * by addGreetingToDOM(). 
+ */
+function handleGreeting(greeting){
+  const textPromise = greeting.text();
+  console.log(textPromise); 
+  textPromise.then(addGreetingToDOM); 
+}
+/**
+ * Adds the greeting to the DOM. 
+ */
+function addGreetingToDOM(greeting){
+  const greetingContainer = document.getElementById('greeting-container');
+  greetingContainer.innerHTML = greeting;
+}
