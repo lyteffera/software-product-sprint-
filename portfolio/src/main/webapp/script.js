@@ -26,24 +26,43 @@ function selectPodcastReccomendations() {
   reccomendationsContainer.innerText=selectedPodcast;
 }
 /**
- * Fetches a hard-coded greeting from the server and adds it to the DOM. 
+ * Fetches the JSON string of quotes from the server and adds it to the DOM. 
  */
-function getGreetingMessage() {
-  const greetingPromise = fetch('/data');
-  greetingPromise.then(handleGreeting);
+ function getQuoteMessage() {
+  const quotePromise = fetch('/data');
+  quotePromise.then(handleQuote);
 }
 /**
- * Converts the greeting in getGreetingMessage() to text, which is handled
- * by addGreetingToDOM(). 
+ * Converts the quote in getQuoteMessage() to text, which is handled
+ * by addQuoteToDOM(). 
  */
-function handleGreeting(greeting) {
-  const textPromise = greeting.text();
-  textPromise.then(addGreetingToDOM); 
+function handleQuote(quote) {
+  const textPromise = quote.text();
+  textPromise.then(addQuoteToDOM); 
 }
 /**
- * Adds the greeting to the DOM. 
+ * Adds the quote to the DOM, by parsing the JSON string, creating a bullet list of 
+ * quotes and appending it to the DOM. 
  */
-function addGreetingToDOM(greeting) {
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerHTML = greeting;
+function addQuoteToDOM(quote) {
+    const ulElement = $('<ul></ul>');
+    quote = JSON.parse(quote); 
+    //Gets the 3 quotes from the Javascript object
+    const message1 = createListElement(quote['firstMessage']);
+    const message2 = createListElement(quote['secondMessage']);
+    const message3 = createListElement(quote['thirdMessage']);
+    //Appends the three li elements to the ul element
+    $(ulElement).append(message1).append(message2).append(message3); 
+    //appends the ul element to the portfolio webpage
+    $('#quotes-container').append(ulElement);
 }
+/**
+ * Creates a li element with the text provided in the paramaters. 
+ */
+function createListElement(text) {
+  const liElement = $('<li></li>');
+  $(liElement).text(text);
+  return liElement;
+}
+//Ensures that the quotes are added to the webpage. 
+getQuoteMessage(); 
