@@ -13,6 +13,11 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
@@ -22,14 +27,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.HashMap; 
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that processes comments data and returns it as a JSON string.*/
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   
   ArrayList<String> comments = new ArrayList<String>(100);
+  DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
   
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    Query query = new Query("Comments");
+    PreparedQuery results = datastore.prepare(query);
+    for (Entity entity : results.asIterable()) {
+      String newComment = (String) entity.getProperty("text");
+      if (!(comments.contains(newComment))){
+        comments.add(newComment); 
+        }
+    }
     String json = convertToJsonUsingGson(comments);
     response.setContentType("application/json");
     response.getWriter().println(json);
@@ -37,7 +51,9 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String comment = request.getParameter("form-comment");
-    comments.add(comment);
+    Entity dataComments = new Entity("Comments");
+    dataComments.setProperty("text",comment);
+    datastore.put(dataComments);
     response.sendRedirect("/index.html");
   }
    private String convertToJsonUsingGson(ArrayList<String> listOfItems) {
