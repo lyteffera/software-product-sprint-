@@ -27,7 +27,7 @@ import java.util.HashMap;
 public class DataServlet extends HttpServlet {
   
   ArrayList<String> comments = new ArrayList<String>(100);
-
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String json = convertToJsonUsingGson(comments);

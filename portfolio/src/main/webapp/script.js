@@ -11,12 +11,12 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 /**
  * Adds a podcast suggestion to the page. I repurposed the code 
  previously written that added a random greeting to the webpage when 
  clicked. 
  */
-
 function selectPodcastReccomendations() {
   const podcastReccomendations = ['Modern Love', 'tech-ish', 'Welcome To Night Vale', 'Radiolab', 'The Nod',
   'Still Processing', 'Ologies with Alie Ward', 'Hello From the Magic Tavern', 'Critical Role'];
@@ -46,20 +46,12 @@ function handleComment(comment) {
  * comments and appending it to the DOM. 
  */
 function addCommentToDOM(comment) {
-    const ulElement = $('<ul></ul>'); 
-    const headerElement = $('<h3></h3>').text('Comments section:'); 
     comment = JSON.parse(comment);
-    //Gets the 3 comments from the Javascript object
-    const message1 = createListElement(comment[0]);
-    //Appends the li element to the ul element
-    console.log(comment);
-    console.log(comment[0]);
-    $(ulElement).append(message1);
-    console.log(ulElement); 
-    //appends the ul element to the portfolio webpage
-    $('#view-comments').append(headerElement);
-    $('#view-comments').append(ulElement);
-    
+    // Obtains all new and past comments and adds them to the DOM. 
+    comment.forEach(function(i){
+        const liElement = createListElement(i);
+        $('#comments-history').append(liElement);
+    })   
 }
 /**
  * Creates a li element with the text provided in the paramaters. 
