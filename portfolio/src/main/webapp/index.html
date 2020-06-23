@@ -6,8 +6,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI_2stv3SsrInTYy_4Wj4FFCxAzmsZiLc">
+    </script>
+    <script src="script.js"></script>
+</script>
+      
   </head>
-  <body onload="getCommentMessage()">
+  <body onload="getCommentMessage();createMap();">
     <div id="content">
       <h1>Leah Teffera</h1>
       <section id"intro">
@@ -83,6 +89,11 @@
         <h2>Projects</h2>
         <p>WIP!</p>
       </section>
+      <section id="maps">
+         <h2>Maps</h2>
+         <p>Here's a map of the town I live in:</p>
+        <div id="map"></div>
+      </section>
       <section id="comments">
         <h2>Comments</h2>
         <form action="/data" method="POST">
@@ -97,6 +108,4 @@
       </section>
     </div>
   </body>
-  <script src="script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </html>

@@ -25,7 +25,7 @@ as well as the section headers.*/
    width: 250px;
    height: 250px;
  }
-/* Uses flex property to create two rows of pictures.*/
+/*Uses flex property to create two rows of pictures.*/
  .row1,.row2 {
   display: flex;
  }
@@ -33,4 +33,9 @@ as well as the section headers.*/
    flex: 20%;
    padding: 5px;
  }
-
+/*Styling specifically for Google Maps*/
+  #map {
+   border: thin solid black;
+   height: 500px;
+   width: 500px;
+  }
