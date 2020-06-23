@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body onload="getCommentMessage()">
     <div id="content">
       <h1>Leah Teffera</h1>
       <section id"intro">
@@ -83,10 +83,17 @@
         <h2>Projects</h2>
         <p>WIP!</p>
       </section>
-      <section id="favorite-quotes">
-        <h2>Favorite Quotes</h2>
-        <p>Below are some of my favorite quotes!</p>
-        <div id="quotes-container"></div>
+      <section id="comments">
+        <h2>Comments</h2>
+        <form action="/data" method="POST">
+        <p>Please comment below on what you think of my website!</p>
+          <textarea id="user-comment" name="form-comment" rows="3" cols="50"></textarea>
+          <input type="submit"/>
+        </form>
+        <div id="view-comments">
+          <h3>Comments section</h3>
+          <ul id="comments-history"></ul>
+        </div>
       </section>
     </div>
   </body>

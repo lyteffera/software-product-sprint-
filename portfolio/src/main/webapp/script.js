@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 /**
  * Adds a podcast suggestion to the page. I repurposed the code 
  previously written that added a random greeting to the webpage when 
@@ -26,35 +27,31 @@ function selectPodcastReccomendations() {
   reccomendationsContainer.innerText=selectedPodcast;
 }
 /**
- * Fetches the JSON string of quotes from the server and adds it to the DOM. 
+ * Fetches the JSON string of comments from the server and adds it to the DOM. 
  */
- function getQuoteMessage() {
-  const quotePromise = fetch('/data');
-  quotePromise.then(handleQuote);
+ function getCommentMessage() {
+  const commentPromise = fetch('/data');
+  commentPromise.then(handleComment);
 }
 /**
- * Converts the quote in getQuoteMessage() to text, which is handled
- * by addQuoteToDOM(). 
+ * Converts the comment in getCommentMessage() to text, which is handled
+ * by addCommentToDOM(). 
  */
-function handleQuote(quote) {
-  const textPromise = quote.text();
-  textPromise.then(addQuoteToDOM); 
+function handleComment(comment) {
+  const textPromise = comment.text();
+  textPromise.then(addCommentToDOM); 
 }
 /**
- * Adds the quote to the DOM, by parsing the JSON string, creating a bullet list of 
- * quotes and appending it to the DOM. 
+ * Adds the comment to the DOM, by parsing the JSON string, creating a bullet list of 
+ * comments and appending it to the DOM. 
  */
-function addQuoteToDOM(quote) {
-    const ulElement = $('<ul></ul>');
-    quote = JSON.parse(quote); 
-    //Gets the 3 quotes from the Javascript object
-    const message1 = createListElement(quote['firstMessage']);
-    const message2 = createListElement(quote['secondMessage']);
-    const message3 = createListElement(quote['thirdMessage']);
-    //Appends the three li elements to the ul element
-    $(ulElement).append(message1).append(message2).append(message3); 
-    //appends the ul element to the portfolio webpage
-    $('#quotes-container').append(ulElement);
+function addCommentToDOM(comment) {
+    comment = JSON.parse(comment);
+    // Obtains all new and past comments and adds them to the DOM. 
+    comment.forEach(function(i){
+        const liElement = createListElement(i);
+        $('#comments-history').append(liElement);
+    })   
 }
 /**
  * Creates a li element with the text provided in the paramaters. 
@@ -64,5 +61,3 @@ function createListElement(text) {
   $(liElement).text(text);
   return liElement;
 }
-//Ensures that the quotes are added to the webpage. 
-getQuoteMessage(); 
